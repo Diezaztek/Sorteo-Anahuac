@@ -5,6 +5,50 @@
     */
     (function($) {
     "use strict"; // Start of use strict
+    var apigClient = apigClientFactory.newClient();
+    $('#spinnerGenerate').hide()
+    $('#spinnerUpload').hide()
+
+    //Generate button
+    $('#generateButton').click(async function() {
+      $('#spinnerGenerate').show()
+      $('#textGenerate').hide()
+      var student = await apigClient.rootGet()
+
+      $('#generateTicketModal').modal('show');
+      $('#spinnerGenerate').hide()
+      $('#textGenerate').show()
+
+      $('#studentContact').text(student.data.contact)
+    })
+
+    //Get tickets Information
+    $( "#registerForm" ).submit(async function( event ) {
+      event.preventDefault();
+      $('#spinnerUpload').show()
+      $('#textUpload').hide()
+
+      var response = await apigClient.rootPost({}, {'email':$('#email').val(), 'ticketsLeft': $('#quantity').val(), 'contact':$('#contact').val()}, {})
+
+      if(response.data.hasOwnProperty('errorMessage')){
+        $('#erroModal').modal('show');
+      }else{
+        $('#successModal').modal('show');
+      }
+
+      $('#spinnerUpload').hide()
+      $('#textUpload').show()
+
+    });
+
+    //On modal close refresh page
+    $('#successModal').on('hide.bs.modal', function() {
+      location.reload();
+    });
+
+    $('#errorModal').on('hide.bs.modal', function() {
+      location.reload();
+    });
 
     // Smooth scrolling using jQuery easing
     $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
