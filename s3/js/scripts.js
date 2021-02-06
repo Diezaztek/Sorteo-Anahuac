@@ -16,15 +16,25 @@
       $('#textGenerate').hide()
 
       var campus = $('#campusHelp').val()
-      var student = await apigClient.rootGet({campus: campus}, {campus: campus}, {campus: campus})
+      try {
+        var student = await apigClient.rootGet({campus: campus}, {campus: campus}, {campus: campus})
+        $('#studentContact').text(student.data.contact)
 
-      console.log(student)
+        if(response.data.hasOwnProperty('errorMessage')){
+          $('#erroModal').modal('show');
+        }else{
+          $('#successModal').modal('show');
+        }
 
-      $('#generateTicketModal').modal('show');
-      $('#spinnerGenerate').hide()
-      $('#textGenerate').show()
+      } catch (e) {
+        $('#erroModal').modal('show');
+      } finally {
+        $('#spinnerGenerate').hide()
+        $('#textGenerate').show()
+        console.log(student)
+      }
 
-      $('#studentContact').text(student.data.contact)
+
     })
 
     //Register new student
@@ -33,19 +43,28 @@
       $('#spinnerUpload').show()
       $('#textUpload').hide()
 
-      var response = await apigClient.rootPost({}, {'email':$('#email').val(),
-        'ticketsLeft': $('#quantity').val(),
-        'contact':$('#contact').val(),
-        'campus': $('#campus').val()}, {})
+      try {
 
-      if(response.data.hasOwnProperty('errorMessage')){
+        var response = await apigClient.rootPost({}, {'email':$('#email').val(),
+          'ticketsLeft': $('#quantity').val(),
+          'contact':$('#contact').val(),
+          'campus': $('#campus').val()}, {})
+
+        if(response.data.hasOwnProperty('errorMessage')){
+          $('#erroModal').modal('show');
+        }else{
+          $('#successModal').modal('show');
+        }
+
+      } catch (e) {
         $('#erroModal').modal('show');
-      }else{
-        $('#successModal').modal('show');
+      } finally {
+        $('#spinnerUpload').hide()
+        $('#textUpload').show()
       }
 
-      $('#spinnerUpload').hide()
-      $('#textUpload').show()
+
+
 
     });
 
