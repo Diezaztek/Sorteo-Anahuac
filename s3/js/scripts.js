@@ -22,13 +22,18 @@
       $('#studentContact').text(student.data.contact)
     })
 
-    //Get tickets Information
+    //Register new student
     $( "#registerForm" ).submit(async function( event ) {
       event.preventDefault();
       $('#spinnerUpload').show()
       $('#textUpload').hide()
 
-      var response = await apigClient.rootPost({}, {'email':$('#email').val(), 'ticketsLeft': $('#quantity').val(), 'contact':$('#contact').val()}, {})
+      console.log($('#campus').val())
+
+      var response = await apigClient.rootPost({}, {'email':$('#email').val(),
+        'ticketsLeft': $('#quantity').val(),
+        'contact':$('#contact').val(),
+        'campus': $('#campus').val()}, {})
 
       if(response.data.hasOwnProperty('errorMessage')){
         $('#erroModal').modal('show');

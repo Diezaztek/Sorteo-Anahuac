@@ -17,6 +17,7 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
+
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
@@ -29,7 +30,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#register">Registrar boletos</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">¿Por qué?</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#help">Buy me a coffee</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#sponsors">Sponsors</a></li>
                     </ul>
                 </div>
             </div>
@@ -93,7 +94,17 @@
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                             <label>Tickets to sell</label>
-                            <input class="form-control" id="quantity" type="number" step="1" min="1" max="20" placeholder="Cantidad de boletos por vender" required="required" data-validation-required-message="Por favor, introduce la cantidad de boletos que te faltan por vender." />
+                            <input class="form-control" id="quantity" type="number" step="1" min="1" max="30" placeholder="Cantidad de boletos por vender" required="required" data-validation-required-message="Por favor, introduce la cantidad de boletos que te faltan por vender." />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <br>
+                            <select class="form-control" id="campus" required="required">
+                              <option disabled selected>Selecciona tu campus</option>
+                              <option value="1">Querétaro</option>
+                            </select>
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
@@ -126,42 +137,29 @@
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ml-auto"><p class="lead">Sabemos que cada año se vuelve más complicado vender los boletos del sorteo Anáhuac, y este año es especialemente difícil debido a la situación mundial</p></div>
-                    <div class="col-lg-4 mr-auto"><p class="lead">Esta aplicación fue diseñada con la intención de ser un canal entre la gente que debe vender boletos (y así no perder su beca) y la gente que quisiera ayudarlos comprando un(os) boleto(s)</p></div>
+                    <div class="col-lg-4 ml-auto"><p class="lead">Ante la situación que vivimos el día de hoy, gracias al alumno Francisco Torres Castillo de 8vo semestre de Informatica en colaboración con FESAL Querétaro y la Universidad Anáhuac Querétaro hemos logramos el lanzamiento de esta plataforma que busca que como comunidad y líderes de acción positiva nos apoyemos en los momentos que más nos necesitamos</p></div>
+                    <div class="col-lg-4 mr-auto"><p class="lead">Esta plataforma es iniciativa estudiantil y está diseñada para apoyar a los alumnos con la venta de los boletos del Sorteo Anáhuac. Demostremos que juntos como comunidad podremos salir adelante</p></div>
                 </div>
             </div>
         </section>
-        <!-- Contact Section-->
-        <section class="page-section" id="help">
-            <div class="container">
-                <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Buy me a coffee</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-hands-helping"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Contact Section Form-->
-                <div class="row-justify-content-center">
-                    <div class="col-lg-8 mx-auto">
-                        <p class="lead">
-                          Este proyecto se realizó con la intención de ayudar a los becarios de la Universidad Anáhuac, por lo que todo el gasto de mantener la página arriba corre por mi cuenta. Te agradecería me puedas apoyar a seguir manteniendo este proyecto vivo.
-                        </p>
 
+        <!-- Sponsor Section-->
+        <section class="page-section" id="sponsors" style="background:#F4F8FB">
+            <div class="container h-100">
+                <!-- Contact Section Form-->
+                <div class="row align-items-center h-100">
+                    <div class="col-lg-6 mx-auto">
+                        <img class="img-fluid align-middle" src="assets/img/anahuacqro.jpeg" alt="">
                     </div>
-                    <div class="col-lg-8 mx-auto" style="text-align:center">
-                      <form action="https://www.paypal.com/donate" method="post" target="_top">
-                        <input type="hidden" name="hosted_button_id" value="5UDBFY43TZTU8" />
-                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-                        <img alt="" border="0" src="https://www.paypal.com/en_MX/i/scr/pixel.gif" width="1" height="1" />
-                      </form>
+                    <div class="col-lg-6 mx-auto">
+                      <img class="img-fluid align-middle" src="assets/img/fesal.png" alt="">
                     </div>
                 </div>
             </div>
         </section>
+
         <!-- Footer-->
-        <footer class="footer text-center">
+        <footer class="footer text-center" style="background:#000000CC">
             <div class="container">
                 <div class="row-justify-content-center">
                   <p class="lead mb-0">
