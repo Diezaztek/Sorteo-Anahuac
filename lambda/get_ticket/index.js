@@ -10,18 +10,16 @@ const config = {
 
 exports.handler = function(event, context, callback) {
 
-  var email = event.body.email
-  var ticketsLeft = event.body.ticketsLeft
-  var contact = event.body.contact
-
-  var query = `with students_with_max_tickets as (select *
-                                								  from student
-                                								  where tickets_left = (select max(tickets_left)
-                                														from student))
+  var query = `with tickets_raffle_campus as (SELECT s.contact
+                                              FROM student s
+                                              	JOIN generator_31 g
+                                              	ON g.n between 1 and s.tickets_left
+                                              where campus = ${event.campus}
+                                              order by s.email , g.n)
               select *
-              from students_with_max_tickets
+              from tickets_raffle_campus
               offset floor(random() * (select count(*)
-              						from students_with_max_tickets))
+              						from tickets_raffle_campus))
               limit 1;`
 
   const client = new Client(config)
@@ -41,7 +39,7 @@ exports.handler = function(event, context, callback) {
         }
 
         client.end()
-        callback(null, res)
+        callback(null, res.rows[0])
 
       })
     }

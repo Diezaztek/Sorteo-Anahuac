@@ -47,20 +47,34 @@
                     <div class="divider-custom-icon"><i class="fas fa-ticket-alt"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
+
                 <!-- Get ticket Button-->
-                <div class="text-center mt-4">
-                    <a id="generateButton" class="btn btn-xl btn-outline-light">
-                      <div id="textGenerate">
-                        <i class="fas fa-random"></i>
-                        Generar
-                      </div>
-                      <div id="spinnerGenerate">
-                        <div class="spinner-border" role="status">
-                          <span class="sr-only">Loading...</span>
+                <form id="getTicketForm" name="getTicket">
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <br>
+                            <p style="color:white">Selecciona el campus que desees apoyar</p>
+                            <select class="form-control" id="campusHelp" required="required">
+                              <option value="1">Querétaro</option>
+                            </select>
+                            <p class="help-block text-danger"></p>
                         </div>
-                      </div>
-                    </a>
-                </div>
+                    </div>
+                    <br />
+                    <div class="form-group" style="text-align:center">
+                      <button class="btn btn-xl btn-outline-light  btn-xl" id="generateButton" type="submit">
+                        <div id="textGenerate">
+                          <i class="fas fa-random"></i>
+                          Generar
+                        </div>
+                        <div id="spinnerGenerate">
+                          <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+                </form>
             </div>
         </header>
 
@@ -101,8 +115,8 @@
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                             <br>
+                            <p style="font-size:1.5em; color:gray">Selecciona tu campus</p>
                             <select class="form-control" id="campus" required="required">
-                              <option disabled selected>Selecciona tu campus</option>
                               <option value="1">Querétaro</option>
                             </select>
                             <p class="help-block text-danger"></p>
@@ -163,7 +177,7 @@
                 <div class="row align-items-center h-100">
                     <div class="col-lg-6 mx-auto">
                         <a href="https://www.anahuac.mx/queretaro/">
-                          <img class="img-fluid align-middle" src="assets/img/anahuacqro.jpeg" alt="">ç
+                          <img class="img-fluid align-middle" src="assets/img/anahuacqro.jpeg" alt="">
                         </a>
                     </div>
                     <div class="col-lg-6 mx-auto">

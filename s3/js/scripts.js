@@ -11,9 +11,14 @@
 
     //Generate button
     $('#generateButton').click(async function() {
+      event.preventDefault();
       $('#spinnerGenerate').show()
       $('#textGenerate').hide()
-      var student = await apigClient.rootGet()
+
+      var campus = $('#campusHelp').val()
+      var student = await apigClient.rootGet({campus: campus}, {campus: campus}, {campus: campus})
+
+      console.log(student)
 
       $('#generateTicketModal').modal('show');
       $('#spinnerGenerate').hide()
