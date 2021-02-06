@@ -17,21 +17,21 @@
 
       var campus = $('#campusHelp').val()
       try {
-        var student = await apigClient.rootGet({campus: campus}, {campus: campus}, {campus: campus})
-        $('#studentContact').text(student.data.contact)
+        var response = await apigClient.rootGet({campus: campus}, {}, {})
+        $('#studentContact').text(response.data.contact)
 
         if(response.data.hasOwnProperty('errorMessage')){
           $('#erroModal').modal('show');
         }else{
-          $('#successModal').modal('show');
+          $('#generateTicketModal').modal('show');
         }
 
       } catch (e) {
         $('#erroModal').modal('show');
+        console.log(e)
       } finally {
         $('#spinnerGenerate').hide()
         $('#textGenerate').show()
-        console.log(student)
       }
 
 
