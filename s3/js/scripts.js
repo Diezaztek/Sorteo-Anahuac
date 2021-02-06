@@ -28,8 +28,6 @@
       $('#spinnerUpload').show()
       $('#textUpload').hide()
 
-      console.log($('#campus').val())
-
       var response = await apigClient.rootPost({}, {'email':$('#email').val(),
         'ticketsLeft': $('#quantity').val(),
         'contact':$('#contact').val(),

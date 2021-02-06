@@ -13,12 +13,13 @@ exports.handler = function(event, context, callback) {
   var email = event.body.email
   var ticketsLeft = event.body.ticketsLeft
   var contact = event.body.contact
+  var campus = event.body.campus
 
   var query = `INSERT INTO student
-              VALUES('${email}', ${ticketsLeft}, '${contact}')
+              VALUES('${email}', ${ticketsLeft}, '${contact}', ${campus})
               ON CONFLICT (email)
               DO
-                 UPDATE SET tickets_left = ${ticketsLeft}, contact = '${contact}';`
+                 UPDATE SET tickets_left = ${ticketsLeft}, contact = '${contact}', campus=${campus};`
 
   const client = new Client(config)
   client.connect(err => {
